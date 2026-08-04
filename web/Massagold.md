@@ -9,7 +9,8 @@
 
 ---
 ## Source code (.zip file)
-The source code of the files is available in the challenge repository. You can set it up locally using docker to use it as a lab. [Download challenge files](./challenges/web/Massagold.zip) 
+The source code of the files is available in the challenge repository. You can set it up locally using docker to use it as a lab. 
+[Download challenge files.](../challenges/web/Massagold.zip) 
 
 ## Overview
 
@@ -140,25 +141,25 @@ needing any extra escaping tricks:
 
 **1. Register an account and log in.**
 
-![login page](image1.png)
+![login page](../images/web/image1.png)
 
 **2. Compose a letter to `admin`** containing the `<script src="...">` payload
 (built by URL-encoding the JS above into the `callback` parameter):
 
-![compose payload with JSONP callback](image2.png)
+![compose payload with JSONP callback](../images/web/image2.png)
 
 **3. Wait for the bot.** A few seconds after sending, the admin bot logs in,
 opens the letter, and the JSONP-loaded script executes as `admin` — fetching
 `/messages/1` and immediately re-posting its content to my account (`hacker`).
 Refreshing my inbox shows a new letter has arrived from `admin`:
 
-![received letters, new mail from admin](image3.png)
+![received letters, new mail from admin](../images/web/image3.png)
 
 **4. Open the letter.** Because the forwarded content was the raw HTML of
 `/messages/1` (unescaped again on render), the admin's original sealed letter
 renders nested inside my copy — and the flag is right there in the DOM:
 
-![opened letter showing the flag in devtools](image4.png)
+![opened letter showing the flag in devtools](../images/web/image4.png)
 
 ```
 Archive notice: The sealed royal record reads:
